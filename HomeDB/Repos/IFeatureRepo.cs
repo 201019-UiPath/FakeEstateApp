@@ -8,6 +8,7 @@ namespace HomeDB
     {
         void AddFeature(Feature feature);
         Feature GetFeatureById(int id);
+        List<Feature> GetAllFeatures();
         void DeleteFeature(Feature feature);
         void UpdateFeature(Feature feature);
     }
