@@ -53,6 +53,7 @@ namespace FakeEstateAPI
             //services
             services.AddScoped<IHouseService, HouseService>();
             services.AddScoped<IFeatureService, FeatureService>();
+            services.AddScoped<IHouseFeatureService, HouseFeatureService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
