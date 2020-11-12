@@ -59,15 +59,22 @@ namespace HomeDB.Mappers
 
         public HouseFeature ParseHouseFeature(Housefeatures housefeatures)
         {
-            throw new System.NotImplementedException();
+            return new HouseFeature()
+            {
+                FeatureId = housefeatures.Featureid,
+                HouseId = housefeatures.Houseid,
+                HouseFeatureId = housefeatures.Id
+            };
         }
 
         public List<HouseFeature> ParseHouseFeature(ICollection<Housefeatures> housefeatures)
         {
-            return new List<HouseFeature> 
-            {
-
-            }
+            List<HouseFeature> HouseFeatures = new List<HouseFeature>();
+            foreach (var cust in housefeatures)
+                {
+                    HouseFeatures.Add(ParseHouseFeature(cust));
+                }
+            return HouseFeatures;
         }
     }
 }
