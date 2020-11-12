@@ -1,6 +1,6 @@
 namespace HomeDB.Models
 {
-    public class HouseFeatures
+    public class HouseFeature
     {
         public int HouseFeatureId {get; set;}
         public int HouseId {get; set;}
