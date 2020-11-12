@@ -28,7 +28,13 @@ namespace HomeDB.Mappers
 
         public List<Feature> ParseFeature(ICollection<Features> features)
         {
-            throw new System.NotImplementedException();
+            List<Feature> Feature = new List<Feature>();
+            
+                foreach (var feature in features)
+            {
+                Feature.Add(ParseFeature(feature));
+            }
+            return Feature;
         }
 
         public ICollection<Features> ParseFeaturer(List<Feature> feature)
@@ -58,7 +64,10 @@ namespace HomeDB.Mappers
 
         public List<HouseFeature> ParseHouseFeature(ICollection<Housefeatures> housefeatures)
         {
-            throw new System.NotImplementedException();
+            return new List<HouseFeature> 
+            {
+
+            }
         }
     }
 }
