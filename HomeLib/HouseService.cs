@@ -1,4 +1,5 @@
 ﻿using System;
+using HomeDB;
 
 namespace HomeLib
 {
@@ -18,7 +19,7 @@ namespace HomeLib
 
         public List<House> GetAllHouses()
         {
-            _repo.GetAllHouses();
+            return _repo.GetAllHouses();
         }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeEstateAPI", "FakeEstateAPI\FakeEstateAPI.csproj", "{54EF6316-A417-449F-83D9-B79CE47A7328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAPI", "FakeEstateAPI\HomeAPI.csproj", "{54EF6316-A417-449F-83D9-B79CE47A7328}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeDB", "HomeDB\HomeDB.csproj", "{79077E53-C80E-4A86-BE78-85D395FD4D38}"
 EndProject
