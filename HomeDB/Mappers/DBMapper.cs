@@ -42,7 +42,7 @@ namespace HomeDB.Mappers
             throw new System.NotImplementedException();
         }
 
-        public Houses ParseHouse(Houses houses)
+        public House ParseHouse(Houses houses)
         {
             throw new System.NotImplementedException();
         }
@@ -54,7 +54,11 @@ namespace HomeDB.Mappers
 
         public ICollection<Housefeatures> ParseHouseFeature(List<HouseFeature> houseFeature)
         {
-            throw new System.NotImplementedException();
+            ICollection<Housefeatures> HouseFeatures = new List<Housefeatures>();
+            {
+                
+            }
+            return HouseFeatures;
         }
 
         public HouseFeature ParseHouseFeature(Housefeatures housefeatures)

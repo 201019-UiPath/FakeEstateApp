@@ -84,6 +84,14 @@ namespace HomeDB
                 .First(x => x.Id == id));
         }
 
+        public List<House> GetHouseByLocation(string location)
+        {
+            return mapper.ParseHouse(
+                context.Houses
+                .Where(x => x.Location == location)
+                .ToList());
+        }
+
         public void UpdateFeature(Feature feature)
         {
             context.Features.Update(mapper.ParseFeature(feature));

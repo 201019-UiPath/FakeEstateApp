@@ -8,6 +8,7 @@ namespace HomeDB
     {
          void AddHouseFeature(HouseFeature housefeature);
          House GetHouseFeatureById(int id);
+         List <House> GetHouseByLocation(string location);
          void DeleteHouseFeature(HouseFeature housefeature);
          void UpdateHouseFeature(HouseFeature housefeature);
     }
