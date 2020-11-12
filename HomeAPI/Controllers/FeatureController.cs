@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HomeLib;
+using Microsoft.AspNetCore.Cors;
 
 namespace HomeAPI.Controllers
 {
@@ -21,6 +22,7 @@ namespace HomeAPI.Controllers
 
         [HttpGet("GetAllFeatures")]
         [Produces("application/json")]
+        [EnableCors("_myAllowSpecificOrigins")]
         public IActionResult GetAllFeatures()
         {
             try
@@ -34,6 +36,7 @@ namespace HomeAPI.Controllers
         }
 
         [HttpPost("AddFeature")]
+        [EnableCors("_myAllowSpecificOrigins")]
         public IActionResult AddFeature(HomeDB.Models.Feature feature)
         {
             try
