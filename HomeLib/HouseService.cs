@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace HomeLib
 {
-    public class HomeService
+    public class HouseService : IHouseService
     {
         private IHouseRepo _repo;
 
-        public HomeService(IHouseRepo repo)
+        public HouseService(IHouseRepo repo)
         {
             _repo = repo;
         }
@@ -22,6 +22,16 @@ namespace HomeLib
         public List<House> GetAllHouses()
         {
             return _repo.GetAllHouses();
+        }
+
+        public House GetHouse(int id)
+        {
+            return _repo.GetHouseById(id);
+        }
+
+        public void DeleteHouse(House house)
+        {
+            _repo.DeleteHouse(house);
         }
     }
 }
