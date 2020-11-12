@@ -69,6 +69,13 @@ namespace HomeDB
                 context.Features
                 .First(x => x.Id == id));
         }
+        public List<Feature> GetAllFeatures()
+        {
+            return mapper.ParseFeature(
+                context.Features
+                .ToList()
+            );
+        }
 
         public House GetHouseById(int id)
         {
