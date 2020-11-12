@@ -33,12 +33,12 @@ function GetAllHouses()
             cell7.innerHTML = result[i].price;
 
             //create button to access features 
-            /*
+            ///*
             let featCell = row.insertCell(6);
             let featButton = document.createElement("button");
             featButton.innerHTML = "View Features";
             featButton.setAttribute("class", "btn btn-info");
-            featCell.innerHTML = featButton;*/
+            featCell.innerHTML = featButton;//*/
         }
     });
 }
