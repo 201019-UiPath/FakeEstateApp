@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using HomeDB.Entities;
 using HomeDB.Models;
+using System;
 
 namespace HomeDB.Mappers
 {
@@ -10,7 +11,6 @@ namespace HomeDB.Mappers
         {
             return new Features()
             {
-                Id = feature.FeatureId,
                 Description = feature.Description,
                 Fee = feature.Fee
             };
@@ -37,29 +37,67 @@ namespace HomeDB.Mappers
             return Feature;
         }
 
-        public ICollection<Features> ParseFeaturer(List<Feature> feature)
+        public ICollection<Features> ParseFeature(List<Feature> feature)
         {
-            throw new System.NotImplementedException();
+            ICollection<Features> Features = new List<Features>();
+            
+                foreach (var f in feature)
+            {
+                Features.Add(ParseFeature(f));
+            }
+            return Features;
         }
 
         public House ParseHouse(Houses houses)
         {
-            throw new System.NotImplementedException();
+            return new House(){
+                HouseId = houses.Id,
+                Bedrooms = Convert.ToInt32(houses.Bedrooms),
+                Bathrooms = Convert.ToInt32(houses.Bathrooms),
+                Floors = Convert.ToInt32(houses.Floors),
+                Location = houses.Location,
+                AC = Convert.ToBoolean(houses.Ac),
+                Heating = Convert.ToBoolean(houses.Heating),
+                Price = Convert.ToDecimal(houses.Price)
+            };
         }
 
-        public Housefeatures ParseHouseFeature(HouseFeature houseFeature)
+        public Houses ParseHouse(House house)
         {
-            throw new System.NotImplementedException();
+            return new Houses(){
+                Bedrooms = house.Bedrooms,
+                Bathrooms = house.Bathrooms,
+                Floors = house.Floors,
+                Location = house.Location,
+                Ac = house.AC,
+                Heating = house.Heating,
+                Price = house.Price
+            };
         }
 
-        public ICollection<Housefeatures> ParseHouseFeature(List<HouseFeature> houseFeature)
+        public ICollection<Houses> ParseHouse(List<House> house)
         {
-            ICollection<Housefeatures> HouseFeatures = new List<Housefeatures>();
-            {
-                
-            }
-            return HouseFeatures;
+            ICollection<Houses> houses = new List<Houses>();
+            foreach (var h in house)
+                {
+                    houses.Add(ParseHouse(h));
+                }
+            return houses;
         }
+
+        public List<House> ParseHouse(ICollection<Houses> houses)
+        {
+            List<House> house = new List<House>();
+            foreach (var h in houses)
+                {
+                    house.Add(ParseHouse(h));
+                }
+            return house;
+        }
+
+        
+
+        
 
         public HouseFeature ParseHouseFeature(Housefeatures housefeatures)
         {
@@ -80,5 +118,24 @@ namespace HomeDB.Mappers
                 }
             return HouseFeatures;
         }
+
+        public ICollection<Housefeatures> ParseHouseFeature(List<HouseFeature> houseFeature)
+        {
+            ICollection<Housefeatures> HouseFeatures = new List<Housefeatures>();
+            foreach (var cust in houseFeature)
+                {
+                    HouseFeatures.Add(ParseHouseFeature(cust));
+                }
+            return HouseFeatures;
+        }
+
+        public Housefeatures ParseHouseFeature(HouseFeature houseFeature)
+        {
+            return new Housefeatures(){
+                Houseid = houseFeature.HouseId,
+                Featureid = houseFeature.FeatureId
+        };
+        }
+        
     }
 }
