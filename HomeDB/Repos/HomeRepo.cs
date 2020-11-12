@@ -59,6 +59,7 @@ namespace HomeDB
         {
             return mapper.ParseHouse(
                 context.Houses
+                .Include("Housefeatures")
                 .ToList()
             );
         }
@@ -74,6 +75,7 @@ namespace HomeDB
         {
             return mapper.ParseHouse(
                 context.Houses
+                .Include("Housefeatures")
                 .First(x => x.Id == id));
         }
 
