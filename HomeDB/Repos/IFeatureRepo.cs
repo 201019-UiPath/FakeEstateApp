@@ -1,8 +1,8 @@
-using HomeDB.Mappers;
+using HomeDB.Models;
 using System.Collections.Generic;
 using System;
 
-namespace HomeDB.Repos
+namespace HomeDB
 {
     public interface IFeatureRepo
     {
