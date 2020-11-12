@@ -22,7 +22,6 @@ function AddHouse()
             document.querySelector('#ac').value= '';
             document.querySelector('#heating').value= '';
             document.querySelector('#price').value= '';
-            //GetAllHouses();
         }
     };
     xhr.open("POST", 'https://localhost:44341/House/AddHouse', false);
