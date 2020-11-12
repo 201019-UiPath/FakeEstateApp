@@ -8,7 +8,7 @@
     <title>Our Houses</title>
 </head>
 
-<body>
+<body onload="GetAllHouses()">
     <div class="topnav">
         <a class="active" href="index.html">Home</a>
         <a href="ourhouses.html">View Our Homes!</a>
@@ -21,8 +21,7 @@
     <div class="container">
 
         <article class="description">Each house is custom-designed!</article>
-        <input type="button" value="Get All Houses" class="btn btn-info" onclick="GetAllHouses()">
-        <table class="table" id="houses">
+        <table class="table" id="houses" >
             <thead>
                 <th>Id</th>
                 <th>Bedrooms</th>
@@ -32,9 +31,11 @@
                 <th>AC</th>
                 <th>Heating</th>
                 <th>Price</th>
+                <th>Features!</th>
             </thead>
             <tbody>
                 <tr>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
