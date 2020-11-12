@@ -7,7 +7,7 @@ namespace HomeDB
     public interface IHouseFeatureRepo
     {
          void AddHouseFeature(HouseFeature housefeature);
-         House GetHouseFeatureById(int id);
+         HouseFeature GetHouseFeatureById(int id);
          List <House> GetHouseByLocation(string location);
          void DeleteHouseFeature(HouseFeature housefeature);
          void UpdateHouseFeature(HouseFeature housefeature);

@@ -11,12 +11,12 @@ namespace HomeDB
     public class HomeRepo : IRepo
     {
         private HomeContext context;
-        private IMapper mapper;
+        private DBMapper mapper;
         
-        public HomeRepo (HomeContext context, IMapper mapper)
+        public HomeRepo ()
         {
-            this.context = context;
-            this.mapper = mapper;
+            this.context = new HomeContext();
+            this.mapper = new DBMapper();
         }
 
         public void AddFeature(Feature feature)
@@ -77,11 +77,10 @@ namespace HomeDB
                 .First(x => x.Id == id));
         }
 
-        public House GetHouseFeatureById(int id)
+        public HouseFeature GetHouseFeatureById(int id)
         {
             return mapper.ParseHouseFeature(
                 context.Housefeatures
-                .Include("Houses")
                 .First(x => x.Id == id));
         }
 
