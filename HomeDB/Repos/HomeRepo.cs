@@ -21,7 +21,8 @@ namespace HomeDB
 
         public void AddFeature(Feature Feature)
         {
-            throw new NotImplementedException();
+            context.Features.Add(mapper.ParseFeature(Feature));
+            context.SaveChanges();
         }
 
         public void AddHouse(House house)
