@@ -19,70 +19,87 @@ namespace HomeDB
             this.mapper = mapper;
         }
 
-        public void AddFeature(Feature Feature)
+        public void AddFeature(Feature feature)
         {
-            context.Features.Add(mapper.ParseFeature(Feature));
+            context.Features.Add(mapper.ParseFeature(feature));
             context.SaveChanges();
         }
 
         public void AddHouse(House house)
         {
-            throw new NotImplementedException();
+            context.Houses.Add(mapper.ParseHouse(house));
+            context.SaveChanges();
         }
 
         public void AddHouseFeature(HouseFeature housefeature)
         {
-            throw new NotImplementedException();
+            context.Housefeatures.Add(mapper.ParseHouseFeature(housefeature));
+            context.SaveChanges();
         }
 
-        public void DeleteFeature(Feature Feature)
+        public void DeleteFeature(Feature feature)
         {
-            throw new NotImplementedException();
+            context.Features.Remove(mapper.ParseFeature(feature));
+            context.SaveChanges();
         }
 
         public void DeleteHouse(House house)
         {
-            throw new NotImplementedException();
+            context.Houses.Remove(mapper.ParseHouse(house));
+            context.SaveChanges();
         }
 
         public void DeleteHouseFeature(HouseFeature housefeature)
         {
-            throw new NotImplementedException();
+            context.Housefeatures.Remove(mapper.ParseHouseFeature(housefeature));
+            context.SaveChanges();
         }
 
         public List<House> GetAllHouses()
         {
-            throw new NotImplementedException();
+            return mapper.ParseHouse(
+                context.Houses
+                .ToList()
+            );
         }
 
         public Feature GetFeatureById(int id)
         {
-            throw new NotImplementedException();
+            return mapper.ParseFeature(
+                context.Features
+                .First(x => x.Id == id));
         }
 
         public House GetHouseById(int id)
         {
-            throw new NotImplementedException();
+            return mapper.ParseHouse(
+                context.Houses
+                .First(x => x.Id == id));
         }
 
         public House GetHouseFeatureById(int id)
         {
-            throw new NotImplementedException();
+            return mapper.ParseHouseFeature(
+                context.Housefeatures
+                .First(x => x.Id == id));
         }
 
-        public void UpdateFeature(Feature Feature)
+        public void UpdateFeature(Feature feature)
         {
-            throw new NotImplementedException();
+            context.Features.Update(mapper.ParseFeature(feature));
+            context.SaveChanges();
         }
 
         public void UpdateHouse(House house)
         {
-            throw new NotImplementedException();
+            context.Houses.Update(mapper.ParseHouse(house));
+            context.SaveChanges();
         }
 
         public void UpdateHouseFeature(HouseFeature housefeature)
         {
-            throw new NotImplementedException();
+            context.Housefeatures.Update(mapper.ParseHouseFeature(housefeature));
+            context.SaveChanges();
         }
     }
 }

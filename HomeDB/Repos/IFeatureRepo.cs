@@ -6,9 +6,9 @@ namespace HomeDB
 {
     public interface IFeatureRepo
     {
-        void AddFeature(Feature Feature);
+        void AddFeature(Feature feature);
         Feature GetFeatureById(int id);
-        void DeleteFeature(Feature Feature);
-        void UpdateFeature(Feature Feature);
+        void DeleteFeature(Feature feature);
+        void UpdateFeature(Feature feature);
     }
 }
