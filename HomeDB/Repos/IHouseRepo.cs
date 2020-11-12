@@ -10,6 +10,7 @@ namespace HomeDB
          House GetHouseById(int id);
          List <House> GetAllHouses();
          void DeleteHouse(House house);
+         void DeleteHouseById(int id);
          void UpdateHouse(House house);
     }
 }

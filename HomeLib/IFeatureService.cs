@@ -1,4 +1,5 @@
-﻿using HomeDB.Models;
+﻿using System.Collections.Generic;
+using HomeDB.Models;
 
 namespace HomeLib
 {
@@ -7,5 +8,6 @@ namespace HomeLib
         void AddFeature(Feature feature);
         void DeleteFeature(Feature feature);
         Feature GetFeature(int featureId);
+        List<Feature> GetAllFeatures();
     }
 }

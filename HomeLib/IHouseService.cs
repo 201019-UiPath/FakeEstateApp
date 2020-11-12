@@ -6,7 +6,7 @@ namespace HomeLib
     public interface IHouseService
     {
         void AddHouse(House house);
-        void DeleteHouse(House house);
+        void DeleteHouse(int id);
         List<House> GetAllHouses();
         House GetHouse(int id);
     }

@@ -12,9 +12,9 @@ namespace HomeAPI.Controllers
     [ApiController]
     public class FeatureController : ControllerBase
     {
-        FeatureService _FeatureService;
+        IFeatureService _FeatureService;
 
-        public FeatureController(FeatureService FeatureService)
+        public FeatureController(IFeatureService FeatureService)
         {
             _FeatureService = FeatureService;
         }
@@ -26,6 +26,20 @@ namespace HomeAPI.Controllers
             try
             {
                 return Ok(_FeatureService.GetAllFeatures());
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("AddFeature")]
+        public IActionResult AddFeature(HomeDB.Models.Feature feature)
+        {
+            try
+            {
+                _FeatureService.AddFeature(feature);
+                return CreatedAtAction("AddFeature", feature);
             }
             catch (Exception)
             {

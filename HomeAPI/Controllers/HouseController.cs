@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HomeLib;
 using HomeDB.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace HomeAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace HomeAPI.Controllers
 
         [HttpGet("GetAllHouses")]
         [Produces("application/json")]
+        [EnableCors("_myAllowSpecificOrigins")]
         public IActionResult GetAllHouses()
         {
             try
@@ -35,6 +37,7 @@ namespace HomeAPI.Controllers
         }
 
         [HttpPost("AddHouse")]
+        [EnableCors("_myAllowSpecificOrigins")]
         public IActionResult AddHouse(House house)
         {
             try
@@ -50,24 +53,26 @@ namespace HomeAPI.Controllers
 
         [HttpGet("GetHouse")]
         [Produces("application/json")]
+        [EnableCors("_myAllowSpecificOrigins")]
         public IActionResult GetHouse(int houseId)
         {
             try
             {
                 return Ok(_houseService.GetHouse(houseId));
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return NotFound();
             }
         }
 
         [HttpDelete("DeleteHouse")]
-        public IActionResult DeleteHouse(House house)
+        [EnableCors("_myAllowSpecificOrigins")]
+        public IActionResult DeleteHouse(int id)
         {
             try
             {
-                _houseService.DeleteHouse(house);
+                _houseService.DeleteHouse(id);
                 return AcceptedAtAction("DeleteHouse");
             }
             catch (Exception)

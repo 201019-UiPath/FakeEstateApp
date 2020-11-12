@@ -5,6 +5,7 @@ using System.Linq;
 using HomeDB.Entities;
 using HomeDB.Mappers;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HomeDB
 {
@@ -46,6 +47,12 @@ namespace HomeDB
         public void DeleteHouse(House house)
         {
             context.Houses.Remove(mapper.ParseHouse(house));
+            context.SaveChanges();
+        }
+
+        public void DeleteHouseById(int id)
+        {
+            context.Houses.Remove(context.Houses.Single(x => x.Id == id));
             context.SaveChanges();
         }
 

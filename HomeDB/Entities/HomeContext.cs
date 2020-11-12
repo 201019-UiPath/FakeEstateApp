@@ -22,6 +22,7 @@ namespace HomeDB.Entities
         public virtual DbSet<Houses> Houses { get; set; }
         public virtual DbSet<PgStatStatements> PgStatStatements { get; set; }
 
+        ///*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -34,7 +35,7 @@ namespace HomeDB.Entities
                 var connectionString = configuration.GetConnectionString("HomeDB");
                 optionsBuilder.UseNpgsql(connectionString);
             }
-        }
+        }//*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

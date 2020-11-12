@@ -8,10 +8,12 @@ namespace HomeLib
     public class HouseService : IHouseService
     {
         private IHouseRepo _repo;
+        private FeatureService featureService;
 
         public HouseService(IHouseRepo repo)
         {
             _repo = repo;
+            featureService = new FeatureService((IFeatureRepo)repo);
         }
 
         public void AddHouse(House house)
@@ -21,7 +23,19 @@ namespace HomeLib
 
         public List<House> GetAllHouses()
         {
-            return _repo.GetAllHouses();
+            List<House> houses = _repo.GetAllHouses();
+            foreach (House house in houses)
+            {
+                house.Features = new List<Feature>();
+                if (house.Housefeature != null)
+                {
+                    foreach (HouseFeature houseFeature in house.Housefeature)
+                    {
+                        house.Features.Add( featureService.GetFeature(Convert.ToInt32(houseFeature.FeatureId)) );
+                    }
+                }
+            }
+            return houses;
         }
 
         public House GetHouse(int id)
@@ -29,9 +43,9 @@ namespace HomeLib
             return _repo.GetHouseById(id);
         }
 
-        public void DeleteHouse(House house)
+        public void DeleteHouse(int id)
         {
-            _repo.DeleteHouse(house);
+            _repo.DeleteHouseById(id);
         }
     }
 }
