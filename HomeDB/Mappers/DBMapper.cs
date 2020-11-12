@@ -48,17 +48,27 @@ namespace HomeDB.Mappers
             return Features;
         }
 
+        public ICollection<Features> ParseFeaturer(List<Feature> feature)
+        {
+            throw new NotImplementedException();
+        }
+
         public House ParseHouse(Houses houses)
         {
             return new House(){
                 HouseId = houses.Id,
                 Bedrooms = Convert.ToInt32(houses.Bedrooms),
+<<<<<<< HEAD
                 Bathrooms = Convert.ToInt32(houses.Bathrooms),
+=======
+                Bathrooms= Convert.ToInt32(houses.Bathrooms),
+>>>>>>> e594ffce4c4ee231590a5dbc71472f33429b230a
                 Floors = Convert.ToInt32(houses.Floors),
                 Location = houses.Location,
                 AC = Convert.ToBoolean(houses.Ac),
                 Heating = Convert.ToBoolean(houses.Heating),
-                Price = Convert.ToDecimal(houses.Price)
+                Price = Convert.ToDecimal(houses.Price),
+                Housefeature = ParseHouseFeature(houses.Housefeatures)
             };
         }
 
@@ -71,7 +81,8 @@ namespace HomeDB.Mappers
                 Location = house.Location,
                 Ac = house.AC,
                 Heating = house.Heating,
-                Price = house.Price
+                Price = house.Price,
+                Housefeatures = ParseHouseFeature(house.Housefeature)
             };
         }
 
@@ -111,22 +122,28 @@ namespace HomeDB.Mappers
 
         public List<HouseFeature> ParseHouseFeature(ICollection<Housefeatures> housefeatures)
         {
-            List<HouseFeature> HouseFeatures = new List<HouseFeature>();
-            foreach (var cust in housefeatures)
-                {
-                    HouseFeatures.Add(ParseHouseFeature(cust));
-                }
-            return HouseFeatures;
+            if(housefeatures != null){
+                List<HouseFeature> HouseFeatures = new List<HouseFeature>();
+                foreach (var cust in housefeatures)
+                    {
+                        HouseFeatures.Add(ParseHouseFeature(cust));
+                    }
+                return HouseFeatures;
+            }
+            return null;
         }
 
         public ICollection<Housefeatures> ParseHouseFeature(List<HouseFeature> houseFeature)
         {
-            ICollection<Housefeatures> HouseFeatures = new List<Housefeatures>();
-            foreach (var cust in houseFeature)
-                {
-                    HouseFeatures.Add(ParseHouseFeature(cust));
-                }
-            return HouseFeatures;
+            if (houseFeature!= null){
+                ICollection<Housefeatures> HouseFeatures = new List<Housefeatures>();
+                foreach (var cust in houseFeature)
+                    {
+                        HouseFeatures.Add(ParseHouseFeature(cust));
+                    }
+                return HouseFeatures;
+            } 
+            return null;
         }
 
         public Housefeatures ParseHouseFeature(HouseFeature houseFeature)
@@ -136,6 +153,7 @@ namespace HomeDB.Mappers
                 Featureid = houseFeature.FeatureId
         };
         }
-        
+
+       
     }
 }

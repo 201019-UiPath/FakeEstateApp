@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace HomeDB.Models
 {
     public class House
@@ -10,5 +11,7 @@ namespace HomeDB.Models
         public bool? AC {get; set;}
         public bool? Heating {get; set;}
         public decimal? Price {get; set;}
+
+        public List<HouseFeature> Housefeature {get;set;}
     }
 }

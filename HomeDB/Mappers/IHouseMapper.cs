@@ -6,7 +6,7 @@ namespace HomeDB.Mappers
 {
     public interface IHouseMapper
     {
-        Houses ParseHouse(Houses houses);
+        Houses ParseHouse(House houses);
         
     }
 }
