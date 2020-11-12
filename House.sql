@@ -1,4 +1,9 @@
-CREATE TABLE House (
+-- drop table housefeatures;
+-- drop table house;
+-- drop table features;
+
+
+CREATE TABLE Houses (
     id serial primary key,
 	bedrooms int,
 	bathrooms int,
@@ -18,6 +23,6 @@ Create TABLE features(
 
 Create TABLE housefeatures(
 	id serial primary key,
-	houseid int references house (id),
+	houseid int references houses (id),
 	featureid int references features (id)
 );
