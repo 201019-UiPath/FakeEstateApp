@@ -81,6 +81,7 @@ namespace HomeDB
         {
             return mapper.ParseHouseFeature(
                 context.Housefeatures
+                .Include("Houses")
                 .First(x => x.Id == id));
         }
 

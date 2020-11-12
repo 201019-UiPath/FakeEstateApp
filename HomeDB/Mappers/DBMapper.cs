@@ -53,7 +53,7 @@ namespace HomeDB.Mappers
             return new House(){
                 HouseId = houses.Id,
                 Bedrooms = Convert.ToInt32(houses.Bedrooms),
-                Bathroom = Convert.ToInt32(houses.Bathrooms),
+                Bathrooms = Convert.ToInt32(houses.Bathrooms),
                 Floors = Convert.ToInt32(houses.Floors),
                 Location = houses.Location,
                 AC = Convert.ToBoolean(houses.Ac),
