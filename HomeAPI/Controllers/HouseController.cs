@@ -13,9 +13,9 @@ namespace HomeAPI.Controllers
     [ApiController]
     public class HouseController : ControllerBase
     {
-        HouseService _houseService;
+        IHouseService _houseService;
 
-        public HouseController(HouseService houseService)
+        public HouseController(IHouseService houseService)
         {
             _houseService = houseService;
         }
@@ -28,7 +28,7 @@ namespace HomeAPI.Controllers
             {
                 return Ok(_houseService.GetAllHouses());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return BadRequest();
             }

@@ -25,6 +25,11 @@ namespace HomeLib
             return _repo.GetFeatureById(featureId);
         }
 
+        public List<Feature> GetAllFeatures()
+        {
+            return _repo.GetAllFeatures();
+        }
+
         public void DeleteFeature(Feature feature)
         {
             _repo.DeleteFeature(feature);

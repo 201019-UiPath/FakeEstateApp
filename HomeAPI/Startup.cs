@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HomeDB;
 using HomeDB.Entities;
+using HomeDB.Mappers;
 using HomeLib;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,11 @@ namespace FakeEstateAPI
             services.AddControllers();
             services.AddDbContext<HomeContext>(options => options.UseNpgsql(Configuration.GetConnectionString("HomeDB")));
             //repos
+            services.AddScoped<IMapper, DBMapper>();
+            services.AddScoped<IHouseMapper, DBMapper>();
+            services.AddScoped<IFeature, DBMapper>();
+            services.AddScoped<IHouseFeature, DBMapper>();
+            services.AddScoped<IRepo, HomeRepo>();
             services.AddScoped<IHouseRepo, HomeRepo>();
             services.AddScoped<IFeatureRepo, HomeRepo>();
             services.AddScoped<IHouseFeatureRepo, HomeRepo>();
