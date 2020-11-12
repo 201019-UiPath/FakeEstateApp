@@ -55,11 +55,7 @@ namespace HomeDB.Mappers
             return new House(){
                 HouseId = houses.Id,
                 Bedrooms = Convert.ToInt32(houses.Bedrooms),
-<<<<<<< HEAD
                 Bathrooms = Convert.ToInt32(houses.Bathrooms),
-=======
-                Bathrooms= Convert.ToInt32(houses.Bathrooms),
->>>>>>> e594ffce4c4ee231590a5dbc71472f33429b230a
                 Floors = Convert.ToInt32(houses.Floors),
                 Location = houses.Location,
                 AC = Convert.ToBoolean(houses.Ac),
