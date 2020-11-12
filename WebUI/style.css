@@ -43,6 +43,7 @@
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
+	nav
 
 	body {
 		-webkit-text-size-adjust: none;
@@ -2441,11 +2442,25 @@
 
 	@media screen and (max-width: 980px) {
 
-		#nav {
-			display: none;
+		.topnav {
+			background-color: #5ab884;
+
 		}
 
 	}
+	.topnav a {
+		float: left;
+		display: block;
+		color: #333333;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+	  }
+	  .topnav a:hover {
+		background-color: #ddd;
+		color: black;
+	  }
 
 	#navPanel {
 		-moz-transform: translatex(20em);
