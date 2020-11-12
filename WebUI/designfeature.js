@@ -19,3 +19,24 @@ function GetAllFeatures()
         }
     });
 }
+
+
+function AddFeature()
+{
+    let feature = {};
+    feature.description = document.querySelector('#description').value;
+    feature.fee = parseInt(document.querySelector('#fee').value);
+
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status > 199 && this.status < 300)
+        {
+            alert("New Feature has been added!");
+            document.querySelector('#description').value= '';
+            document.querySelector('#fee').value= '';
+        }
+    };
+    xhr.open("POST", 'https://localhost:44341/Feature/AddFeature', false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(feature));
+}
