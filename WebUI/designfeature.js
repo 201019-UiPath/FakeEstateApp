@@ -40,3 +40,23 @@ function AddFeature()
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(feature));
 }
+
+function AddHouseFeature()
+{
+    let housefeature = {};
+    housefeature.houseId = parseInt(document.querySelector('#houseid').value);
+    housefeature.featureId = parseInt(document.querySelector('#featureid').value);
+
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status > 199 && this.status < 300)
+        {
+            alert("Feature has been added to house!");
+            document.querySelector('#houseid').value= '';
+            document.querySelector('#featureid').value= '';
+        }
+    };
+    xhr.open("POST", 'https://localhost:44341/HouseFeature/AddHouseFeature', false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(housefeature));
+}

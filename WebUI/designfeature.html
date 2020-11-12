@@ -9,7 +9,7 @@
     <title>Add more to your dream house!!</title>
 </head>
 
-<body>
+<body onload = "GetAllFeatures()">
     <div class="topnav">
         <a class="active" href="index.html">Home</a>
         <a href="ourhouses.html">View Our Homes!</a>
@@ -21,7 +21,7 @@
     <h1 class="jumbotron">Add new features to the your houses</h1>
     <div class="container">
 
-        <input type="button" value="Get all Features" class="btn btn-info" onclick="GetAllFeatures()">
+        <!-- <input type="button" value="Get all Features" class="btn btn-info" onclick="GetAllFeatures()"> -->
         <table class="table" id="features">
             <thead>
                 <th>Id</th>
@@ -37,6 +37,23 @@
             </tbody>
         </table>
     </div>
+
+
+    <div class="container">
+        <form action="">
+            <div class="form-group">
+                <label for="houseid">House ID:</label>
+                <input type="text" class="form-control" id='houseid' placeholder="Enter House ID">
+            </div>
+            <div class="form-group">
+                <label for="featureid">Feature ID:</label>
+                <input type="text" class="form-control" id='featureid' placeholder="Enter Feature ID">
+            </div>
+            <input type="button" value="Add feature to house" class="btn btn-warning" onclick="AddHouseFeature()">
+        </form>
+    </div>
+
+
     <div class="container">
         <form action="">
             <div class="form-group">
@@ -47,7 +64,7 @@
                 <label for="fee">Fee:</label>
                 <input type="text" class="form-control" id='fee' placeholder="Enter Fee">
             </div>
-            <input type="button" value="Add house" class="btn btn-warning" onclick="AddFeature()">
+            <input type="button" value="Create a bew Feature!" class="btn btn-warning" onclick="AddFeature()">
         </form>
     </div>
     
