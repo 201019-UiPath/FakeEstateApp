@@ -48,10 +48,7 @@ namespace HomeDB.Mappers
             return Features;
         }
 
-        public ICollection<Features> ParseFeaturer(List<Feature> feature)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public House ParseHouse(Houses houses)
         {

@@ -7,7 +7,7 @@ namespace HomeDB.Mappers
     public interface IFeature
     {
         Features ParseFeature(Feature feature);
-        ICollection<Features> ParseFeaturer(List<Feature> feature);
+        ICollection<Features> ParseFeature(List<Feature> feature);
         Feature ParseFeature(Features features);
         List<Feature> ParseFeature(ICollection<Features> features);
     }
