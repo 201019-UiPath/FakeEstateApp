@@ -34,11 +34,10 @@ function GetAllHouses()
 
             //create button to access features 
             ///*
-            let featCell = row.insertCell(6);
-            let featButton = document.createElement("button");
-            featButton.innerHTML = "View Features";
-            featButton.setAttribute("class", "btn btn-info");
-            featCell.innerHTML = featButton;//*/
+            let featCell = row.insertCell(8);
+            featCell.innerHTML = '<input type="button" value="View Features" class="btn btn-info" id="btn'+i+'">'
+            document.getElementById('btn'+i).onclick = () => window.location.href = "viewhouse.html?"+result[i].houseId;
         }
     });
 }
+

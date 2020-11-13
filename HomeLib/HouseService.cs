@@ -40,7 +40,16 @@ namespace HomeLib
 
         public House GetHouse(int id)
         {
-            return _repo.GetHouseById(id);
+            House house = _repo.GetHouseById(id);
+            house.Features = new List<Feature>();
+            if (house.Housefeature != null)
+            {
+                foreach (HouseFeature houseFeature in house.Housefeature)
+                {
+                    house.Features.Add( featureService.GetFeature(Convert.ToInt32(houseFeature.FeatureId)) );
+                }
+            }
+            return house;
         }
 
         public void DeleteHouse(int id)
