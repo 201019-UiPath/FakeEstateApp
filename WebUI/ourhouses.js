@@ -24,13 +24,17 @@ function GetAllHouses()
             cell4.innerHTML = result[i].location;
 
             let cell5 = row.insertCell(5);
-            cell5.innerHTML = result[i].ac;
+            if (result[i].ac)
+            {cell5.innerHTML = 'Yes';}
+            else {cell5.innerHTML = 'No';}
 
             let cell6 = row.insertCell(6);
-            cell6.innerHTML = result[i].heating;
+            if (result[i].heating)
+            {cell6.innerHTML = 'Yes';}
+            else {cell6.innerHTML = 'No';}
 
             let cell7 = row.insertCell(7);
-            cell7.innerHTML = result[i].price;
+            cell7.innerHTML = '$'+numberWithCommas(result[i].price);
 
             //create button to access features 
             ///*
@@ -41,3 +45,6 @@ function GetAllHouses()
     });
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

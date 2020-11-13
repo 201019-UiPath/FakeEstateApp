@@ -1,18 +1,20 @@
 function GetHouse()
 {
-    //console.log('https://localhost:44341/House/GetHouse?houseId='+location.search.substring(1));
     fetch('https://localhost:44341/House/GetHouse?houseId='+location.search.substring(1)) //fetch based on URL houseId
     .then(response => response.json())
     .then(result => {
-        //console.log("Fetch successful!");
-        document.querySelector('#houseid').innerHTML = result.houseId;
-        document.querySelector('#bedrooms').innerHTML = result.bedrooms;
-        document.querySelector('#bathrooms').innerHTML = result.bathrooms;
-        document.querySelector('#floors').innerHTML = result.floors;
-        document.querySelector('#location').innerHTML = result.location;
-        document.querySelector('#ac').innerHTML = result.ac;
-        document.querySelector('#heating').innerHTML = result.heating;
-        document.querySelector('#price').innerHTML = result.price;
+        //document.querySelector('#houseid').innerHTML = 'ID: '+result.houseId;
+        document.querySelector('#bedrooms').innerHTML = 'Bedrooms: '+result.bedrooms;
+        document.querySelector('#bathrooms').innerHTML = 'Bathrooms: '+result.bathrooms;
+        document.querySelector('#floors').innerHTML = 'Floors: '+result.floors;
+        document.querySelector('#location').innerHTML = 'Location: '+result.location;
+        if (result.ac)
+        {document.querySelector('#ac').innerHTML = 'AC: '+'Yes';}
+        else {document.querySelector('#ac').innerHTML = 'AC: '+'No';}
+        if (result.heating)
+        {document.querySelector('#heating').innerHTML = 'Heating: '+'Yes';}
+        else {document.querySelector('#heating').innerHTML = 'Heating: '+'No';}
+        document.querySelector('#price').innerHTML = 'Price: $'+numberWithCommas(result.price);
 
         document.querySelectorAll('#features li').forEach(element => element.remove()); //clear unordered list
         let listElement = document.querySelector('#features'); //gets unordered list
@@ -32,4 +34,8 @@ function GetHouse()
 
         }
     });
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
