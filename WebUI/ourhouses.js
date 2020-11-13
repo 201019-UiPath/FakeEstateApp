@@ -36,11 +36,27 @@ function GetAllHouses()
             let cell7 = row.insertCell(7);
             cell7.innerHTML = '$'+result[i].price.toLocaleString();
 
-            //create button to access features 
-            ///*
+            //create button to access features
             let featCell = row.insertCell(8);
-            featCell.innerHTML = '<input type="button" value="View Features" class="btn btn-info" id="btn'+i+'">'
-            document.getElementById('btn'+i).onclick = () => window.location.href = "viewhouse.html?"+result[i].houseId;
+            featCell.innerHTML = '<input type="button" value="View Features" class="btn btn-info" id="feat'+i+'">';
+            document.getElementById('feat'+i).onclick = () => window.location.href = "viewhouse.html?"+result[i].houseId;
+
+            let deleteCell = row.insertCell(9);
+            deleteCell.innerHTML = '<input type="button" value="X" class="btn btn-danger" id="del'+i+'">';
+            document.getElementById('del'+i).onclick = () => DeleteHouse(result[i].houseId);
         }
     });
+}
+
+function DeleteHouse(houseId)
+{
+    if(confirm('Are you sure you want to delete house with ID='+houseId+'?'))
+    {
+        fetch('https://localhost:44341/House/DeleteHouse?id='+houseId, {method: 'DELETE'})
+        .then(response =>
+        {
+            alert('Deleted house with ID='+houseId+'.');
+            GetAllHouses();
+        });
+    }
 }

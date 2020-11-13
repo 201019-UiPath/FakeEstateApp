@@ -52,7 +52,7 @@ namespace HomeDB
 
         public void DeleteHouseById(int id)
         {
-            context.Houses.Remove(context.Houses.Single(x => x.Id == id));
+            context.Houses.Remove(context.Houses.Include("Housefeatures").Single(x => x.Id == id));
             context.SaveChanges();
         }
 

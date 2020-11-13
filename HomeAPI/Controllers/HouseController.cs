@@ -30,7 +30,7 @@ namespace HomeAPI.Controllers
             {
                 return Ok(_houseService.GetAllHouses());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return BadRequest();
             }
@@ -60,7 +60,7 @@ namespace HomeAPI.Controllers
             {
                 return Ok(_houseService.GetHouse(houseId));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return NotFound();
             }
