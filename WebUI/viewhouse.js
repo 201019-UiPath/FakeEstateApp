@@ -3,7 +3,7 @@ function GetHouse()
     fetch('https://localhost:44341/House/GetHouse?houseId='+location.search.substring(1)) //fetch based on URL houseId
     .then(response => response.json())
     .then(result => {
-        //document.querySelector('#houseid').innerHTML = 'ID: '+result.houseId;
+        document.querySelector('#houseid').innerHTML = 'Viewing House with ID: '+result.houseId;
         document.querySelector('#bedrooms').innerHTML = 'Bedrooms: '+result.bedrooms;
         document.querySelector('#bathrooms').innerHTML = 'Bathrooms: '+result.bathrooms;
         document.querySelector('#floors').innerHTML = 'Floors: '+result.floors;
@@ -14,7 +14,7 @@ function GetHouse()
         if (result.heating)
         {document.querySelector('#heating').innerHTML = 'Heating: '+'Yes';}
         else {document.querySelector('#heating').innerHTML = 'Heating: '+'No';}
-        document.querySelector('#price').innerHTML = 'Price: $'+numberWithCommas(result.price);
+        document.querySelector('#price').innerHTML = 'Price: $'+result.price.toLocaleString();
 
         document.querySelectorAll('#features li').forEach(element => element.remove()); //clear unordered list
         let listElement = document.querySelector('#features'); //gets unordered list
@@ -34,8 +34,4 @@ function GetHouse()
 
         }
     });
-}
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
