@@ -111,7 +111,24 @@
 		}
 
 	}
-
+	.column {
+		float: left;
+		width: 50%;
+		padding: 5px;
+	  }
+	  
+	  .row {
+		display: flex;
+	  }
+	img {
+		display: block;
+		max-width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+		width: 100%;
+		object-fit: cover;
+		height: 50vh;
+	}
 	@media screen and (max-width: 1280px) {
 
 		.container.\31 25\25 {
